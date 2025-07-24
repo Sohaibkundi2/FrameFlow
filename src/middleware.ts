@@ -28,7 +28,7 @@ export default clerkMiddleware(  async (auth, req) => {
       return NextResponse.redirect(new URL('/sign-in', req.url))
     }
 
-    if (isAccessingApiRequest && isPublicApiRoute(req)) {
+    if (isAccessingApiRequest && !isPublicApiRoute(req)) {
       return NextResponse.redirect(new URL('/sign-in', req.url))
     }
   }
