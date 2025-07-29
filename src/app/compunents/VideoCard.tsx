@@ -4,12 +4,11 @@ import { Download, Clock, FileDown, FileUp } from "lucide-react";
 import dayjs from 'dayjs';
 import realtiveTime from "dayjs/plugin/relativeTime"
 import {filesize} from "filesize"
-// import video from '@prisma/client'
-import { video } from '../../../generated/prisma';
+import { Video } from '../../../types'
 dayjs.extend(realtiveTime)
 
 interface VideoCardProps {
-    video:video;
+    video:Video;
     onDownload: (url: string, title: string) => void;
 }
 
