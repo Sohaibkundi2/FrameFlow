@@ -34,7 +34,6 @@ const  VideoCard: React.FC<VideoCardProps> = ({video, onDownload}) => {
             src: publicId,
             width: 1920,
             height: 1080,
-
         })
     }, [])
 
@@ -72,7 +71,7 @@ const  VideoCard: React.FC<VideoCardProps> = ({video, onDownload}) => {
 
       return (
         <div
-          className="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300"
+          className="card bg-gray-950 shadow-xl hover:shadow-2xl transition-all duration-300"
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
