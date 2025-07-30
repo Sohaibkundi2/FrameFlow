@@ -55,7 +55,7 @@ function VideoUpload() {
       }
 
       // Redirect on success
-      router.push("/dashboard");
+      router.push("/home");
     } catch (err: any) {
       setError(err.response?.data?.message || "Something went wrong.");
     } finally {

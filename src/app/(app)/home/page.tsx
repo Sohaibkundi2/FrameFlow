@@ -11,8 +11,10 @@ function Home() {
     const fetchVideos = useCallback(async () => {
         try {
             const response = await axios.get("/api/videos")
+            console.log("👉 Raw response:", response.data);
             if(Array.isArray(response.data)) {
                 setVideos(response.data)
+                console.log('fectced vidoes', response.data)
             } else {
                 throw new Error(" Unexpected response format");
 

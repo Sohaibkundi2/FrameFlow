@@ -1,19 +1,20 @@
 import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server'
-import { NextResponse } from 'next/server';
-
+import { NextResponse } from 'next/server'
 
 const isPublicRoute = createRouteMatcher([
   '/',
   '/home',
   '/sign-in',
-  '/sign-up'
+  '/sign-up',
+  '/social-share(.*)',    
+  '/video-share(.*)'        
 ])
 
 const isPublicApiRoute = createRouteMatcher([
   '/api/videos'
 ])
 
-export default clerkMiddleware(  async (auth, req) => {
+export default clerkMiddleware(async (auth, req) => {
   const { userId } = await auth()
   const currentUrl = new URL(req.url)
   const isAccessingDashboard = currentUrl.pathname === "/home"
@@ -36,6 +37,6 @@ export default clerkMiddleware(  async (auth, req) => {
 
 export const config = {
   matcher: [
-    '/((?!_next|favicon.ico|.*\\..*).*)',
-  ],
+    '/((?!_next|.*\\..*|api/videos).*)',
+  ]
 }
